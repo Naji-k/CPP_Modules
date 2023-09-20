@@ -2,7 +2,7 @@
 #include <iostream>
 
 void Contact::newContact(const std::string &fName, const std::string &lName,
-		const std::string &nName, const std::string &pNumber, const std::string &dSecret)
+						 const std::string &nName, const std::string &pNumber, const std::string &dSecret)
 {
 	this->firstName = fName;
 	this->lastName = lName;

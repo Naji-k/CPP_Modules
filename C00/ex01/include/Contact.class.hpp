@@ -1,18 +1,18 @@
 #ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#define CONTACT_CLASS_HPP
 
-# include <string>
+#include <string>
 
 class Contact
 {
-  public:
+public:
 	void newContact(const std::string &fName, const std::string &lName,
-			const std::string &nName, const std::string &pNumber,
-			const std::string &dSecret);
+					const std::string &nName, const std::string &pNumber,
+					const std::string &dSecret);
 
 	void getContact(void);
 
-  private:
+private:
 	std::string firstName;
 	std::string lastName;
 	std::string nickName;
