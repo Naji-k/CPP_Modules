@@ -14,3 +14,7 @@ void Contact::getContact()
 {
 	std::cout << "full name is: " << firstName << " " << lastName << " phone number: " << phoneNumber << std::endl;
 };
+
+std::string Contact::getName() {
+	return(firstName);
+}

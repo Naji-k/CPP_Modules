@@ -11,6 +11,7 @@ public:
 					const std::string &dSecret);
 
 	void getContact(void);
+	std::string getName(void);
 
 private:
 	std::string firstName;
