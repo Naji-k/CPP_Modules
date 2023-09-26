@@ -1,20 +1,44 @@
 #include "Contact.class.hpp"
 #include <iostream>
+#include <iomanip>
 
 void Contact::newContact(const std::string &fName, const std::string &lName,
 						 const std::string &nName, const std::string &pNumber, const std::string &dSecret)
 {
-	this->firstName = fName;
-	this->lastName = lName;
-	this->nickName = nName;
-	this->phoneNumber = pNumber;
-	this->darkSecret = dSecret;
+	this->_firstName = fName;
+	this->_lastName = lName;
+	this->_nickName = nName;
+	this->_phoneNumber = pNumber;
+	this->_darkSecret = dSecret;
 };
 void Contact::getContact()
 {
-	std::cout << "full name is: " << firstName << " " << lastName << " phone number: " << phoneNumber << std::endl;
+	std::cout << "First Name: " << _firstName << " ";
+	std::cout << "Last Name: " << _lastName << " ";
+	std::cout << "Nick Name: " << _nickName << " ";
+	std::cout << "Phone Number: " << _phoneNumber << " ";
+	std::cout << "Dark Secret: " << _darkSecret << std::endl;
 };
 
-std::string Contact::getName() {
-	return(firstName);
+std::string Contact::getName()
+{
+	return (_firstName);
+}
+
+std::string Contact::getFirstName()
+{
+	return (_firstName);
+}
+
+std::string Contact::getLastName()
+{
+	return (_lastName);
+}
+std::string Contact::getNickName()
+{
+	return (_nickName);
+}
+std::string Contact::getPhoneNumber()
+{
+	return (_phoneNumber);
 }

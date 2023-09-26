@@ -8,29 +8,35 @@ int main(void)
 	std::string str;
 	std::string order;
 
-	std::cout << "Welcome to PhoneBook: use " << std::endl;
-	std::cout << "ADD:\tto add new contact\nSEARCH:\tto search for a contact\nEXIT:\tto exit from the program\n";
-	while (order.compare("EXIT"))
+	std::cout << "Welcome to PhoneBook Choose " << std::endl;
+	std::cout << "ADD:\tto add new contact\nSEARCH:\tto search for a contact\nEXIT:\tto exit from the program";
+	while (true)
 	{
-		std::cout << "choose: ADD, SEARCH, EXIT" << std::endl;
-		std::cout << "> " << std::flush;
-		if (std::cin >> order == 0)
-			break;
-		if (order == "ADD")
-			if (!book1.checkInputs(book1))
-				break;
-			else
+		std::cout << "\n> ";
+		if (!std::getline(std::cin, order))
+		{
+			if (std::cin.eof())
+			{
+				std::cin.clear();
+				std::cout << "Please re-enter your input:";
 				continue;
-		else if (order == "SEARCH")
+			}
+		}
+		if (order.compare("ADD") == 0)
+			book1.checkInputs(book1);
+		else if (order.compare("SEARCH") == 0)
 		{
 			book1.search();
 		}
-		else if (order == "EXIT")
-			exit(0);
-		else if (order == "DISPLAY")
+		else if (order.compare("D") == 0)
 			book1.displayPhoneBook();
+		else if (order.compare("EXIT") == 0)
+			exit(0);
 		else
+		{
 			std::cout << "Wrong input" << std::endl;
+		}
+		std::cout << "choose: ADD, SEARCH, EXIT ";
 	}
 	return (0);
 };

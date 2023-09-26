@@ -1,18 +1,26 @@
+#pragma once
+#ifndef PHONEBOOK_CLASS_HPP
+#define PHONEBOOK_CLASS_HPP
+
 #include "Contact.class.hpp"
+#include <string>
 
 class PhoneBook
 {
 public:
-	PhoneBook() : index(0){};
+	PhoneBook() : _index(0){};
 	void add(const std::string &fname, const std::string &fName, const std::string &nName,
 			 const std::string &pNumber, const std::string &dSecret);
 	void search(void);
 	void displayPhoneBook();
-	bool checkInputs(PhoneBook &book);
-	bool find(const std::string &key, PhoneBook &book);
+	void checkInputs(PhoneBook &book);
+	void find(int max);
+	void printLine(int i);
 
 private:
-	static const int MaxContactNumber = 8;
-	int index;
-	Contact contacts[MaxContactNumber];
+	static const int _MaxContactNumber = 8;
+	int _index;
+	Contact contacts[_MaxContactNumber];
 };
+
+#endif

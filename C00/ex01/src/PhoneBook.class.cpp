@@ -1,20 +1,25 @@
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
 #include "PhoneBook.class.hpp"
 
-bool PhoneBook::checkInputs(PhoneBook &book)
+void PhoneBook::checkInputs(PhoneBook &book)
 {
-	std::string prompt[5] = {"First Name", "Last Name", "Nick Name",
+	std::string prompt[5] = {"First Name ", "Last Name ", "Nick Name",
 							 "Phone Number ", "Dark Secret "};
 	std::string input[5];
 
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << "Please Enter The " << prompt[i] << std::endl;
-		std::getline(std::cin, input[i]);
-
+		if (!getline(std::cin, input[i]))
+		{
+			std::cout << "EOF detected. Exiting.\n";
+			return;
+		}
 		if (input[i].empty())
 		{
-			std::cout << "The input is empty\n";
+			std::cout << "The input is empty" << std::endl;
 			i--;
 		}
 	}
@@ -23,57 +28,109 @@ bool PhoneBook::checkInputs(PhoneBook &book)
 	{
 		book.add(input[0], input[1], input[2], input[3], input[4]);
 	}
-	return (true);
 }
 
 void PhoneBook::add(const std::string &fName, const std::string &lName,
 					const std::string &nName, const std::string &pNumber,
 					const std::string &dSecret)
 {
-	contacts[index % 8].newContact(fName, lName, nName, pNumber, dSecret);
-	index++;
+	contacts[_index % 8].newContact(fName, lName, nName, pNumber, dSecret);
+	_index++;
 };
 void PhoneBook::displayPhoneBook(void)
 {
-	int max = index;
-	if (max > MaxContactNumber)
-		max = MaxContactNumber;
+	int max = _index;
+
+	if (max > _MaxContactNumber)
+		max = _MaxContactNumber;
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "|";
+	std::cout << std::setw(10);
+	std::cout << "Index";
+	std::cout << "|";
+	std::cout << std::setw(10);
+	std::cout << "First Name";
+	std::cout << "|";
+	std::cout << std::setw(10);
+	std::cout << "Last Name";
+	std::cout << "|";
+	std::cout << std::setw(10);
+	std::cout << "Nick Name";
+	std::cout << "|" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
 	for (int i = 0; i < max; i++)
-		contacts[i].getContact();
+	{
+		printLine(i);
+	}
+	PhoneBook::find(max);
 };
+
+void PhoneBook::printLine(int i)
+{
+	std::string str;
+
+	std::cout << "|" << std::setw(10) << std::right << i + 1 << "|";
+	str = contacts[i].getFirstName();
+	if (str.length() > 9)
+	{
+		str = str.substr(0, 9) + ".";
+	}
+	std::cout << std::setw(10) << std::right << str << "|";
+	str = contacts[i].getLastName();
+	if (str.length() > 9)
+	{
+		str = str.substr(0, 9) + ".";
+	}
+	std::cout << std::setw(10) << std::right << str << "|";
+	str = contacts[i].getNickName();
+	if (str.length() > 9)
+	{
+		str = str.substr(0, 9) + ".";
+	}
+	std::cout << std::setw(10) << std::right << str << "|" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
+}
 void PhoneBook::search(void)
 {
 	std::string str;
 	std::cout << "Searching for: >" << std::endl;
 	if (!std::getline(std::cin, str))
 	{
-		if (std::cin.eof())
-		{
-			std::cout << "EOF detected. Exiting." << std::endl;
-		}
-		else
-		{
-			std::cerr << "Input error occurred." << std::endl;
-		}
+		std::cout << "EOF detected. Exiting." << std::endl;
 	}
 	if (str.empty())
-	std::cout << "str in empty\n";
+		std::cout << "str in empty\n";
 	std::cout << "input is " << str << std::endl;
-
-	// PhoneBook::find(input, book);
 }
 
-bool PhoneBook::find(const std::string &key, PhoneBook &book)
+void PhoneBook::find(int max)
 {
-	std::cout << "key=" << key << std::endl;
-	for (int i = 0; i < (index % 8); ++i)
-	{
-		const std::string &fName = book.contacts[i].getName();
+	int selected;
+	std::string input;
 
-		if (fName.find(key) != std::string::npos)
-			book.contacts[i].getContact();
+	while (1)
+	{
+		std::cout << "Choose index from the table \n > ";
+		if (!getline(std::cin, input))
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			return;
+		}
+		if (input.length() == 1 && isdigit(input[0]))
+		{
+			selected = atoi(input.c_str());
+			if (selected > max)
+				std::cout << "Invalid input ";
+			else
+			{
+				contacts[selected - 1].getContact();
+				break;
+			}
+		}
 		else
-			std::cout << "Contact Not found\n";
+		{
+			std::cout << "Invalid input ";
+		}
 	}
-	return false;
 };

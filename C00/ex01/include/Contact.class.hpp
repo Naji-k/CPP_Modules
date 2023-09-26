@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CONTACT_CLASS_HPP
 #define CONTACT_CLASS_HPP
 
@@ -12,13 +13,17 @@ public:
 
 	void getContact(void);
 	std::string getName(void);
+	std::string getFirstName();
+	std::string getLastName();
+	std::string getNickName();
+	std::string getPhoneNumber();
 
 private:
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phoneNumber;
-	std::string darkSecret;
+	std::string _firstName;
+	std::string _lastName;
+	std::string _nickName;
+	std::string _phoneNumber;
+	std::string _darkSecret;
 };
 
 #endif
