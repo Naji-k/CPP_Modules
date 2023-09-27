@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Contact.class.hpp                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/09/27 18:16:13 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/09/27 18:16:13 by nakanoun      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #ifndef CONTACT_CLASS_HPP
 #define CONTACT_CLASS_HPP

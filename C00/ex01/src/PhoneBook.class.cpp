@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   PhoneBook.class.cpp                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/09/27 18:16:29 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/09/27 18:16:29 by nakanoun      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
@@ -22,6 +34,30 @@ void PhoneBook::checkInputs(PhoneBook &book)
 			std::cout << "The input is empty" << std::endl;
 			i--;
 		}
+		if (i == 3)
+		{
+			for (int j = 0; j < (int)input[i].length(); j++)
+			{
+				if (std::isdigit(input[i][j]) == 0)
+				{
+					std::cout << prompt[i] << "should be numbers" << std:: endl;
+					i--;
+					break;
+				}
+			}
+		}
+		if (i != 3)
+		{
+			for (int j = 0; j < (int)input[i].length(); j++)
+			{
+				if (std::isalpha(input[i][j]) == 0)
+				{
+					std::cout << prompt[i] << "should not be numbers" << std:: endl;
+					i--;
+					break;
+				}
+			}
+		}
 	}
 	if (!input[0].empty() && !input[1].empty() && !input[2].empty() &&
 		!input[3].empty() && !input[4].empty())
@@ -40,7 +76,11 @@ void PhoneBook::add(const std::string &fName, const std::string &lName,
 void PhoneBook::displayPhoneBook(void)
 {
 	int max = _index;
-
+	if (max == 0)
+	{
+		std::cout << "The PhoneBook is empty" << std::endl;
+		return;
+	}
 	if (max > _MaxContactNumber)
 		max = _MaxContactNumber;
 	std::cout << "---------------------------------------------" << std::endl;
@@ -89,18 +129,6 @@ void PhoneBook::printLine(int i)
 	}
 	std::cout << std::setw(10) << std::right << str << "|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-}
-void PhoneBook::search(void)
-{
-	std::string str;
-	std::cout << "Searching for: >" << std::endl;
-	if (!std::getline(std::cin, str))
-	{
-		std::cout << "EOF detected. Exiting." << std::endl;
-	}
-	if (str.empty())
-		std::cout << "str in empty\n";
-	std::cout << "input is " << str << std::endl;
 }
 
 void PhoneBook::find(int max)

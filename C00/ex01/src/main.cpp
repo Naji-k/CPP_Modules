@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/09/27 18:16:26 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/09/27 18:16:26 by nakanoun      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cstdlib>
 #include "PhoneBook.class.hpp"
@@ -15,21 +27,15 @@ int main(void)
 		std::cout << "\n> ";
 		if (!std::getline(std::cin, order))
 		{
-			if (std::cin.eof())
-			{
-				std::cin.clear();
-				std::cout << "Please re-enter your input:";
-				continue;
-			}
+			std::cin.clear();
+			break;
 		}
 		if (order.compare("ADD") == 0)
 			book1.checkInputs(book1);
 		else if (order.compare("SEARCH") == 0)
 		{
-			book1.search();
-		}
-		else if (order.compare("D") == 0)
 			book1.displayPhoneBook();
+		}
 		else if (order.compare("EXIT") == 0)
 			exit(0);
 		else

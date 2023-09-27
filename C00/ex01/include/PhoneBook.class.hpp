@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   PhoneBook.class.hpp                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/09/27 18:16:19 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/09/27 18:16:19 by nakanoun      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 #ifndef PHONEBOOK_CLASS_HPP
 #define PHONEBOOK_CLASS_HPP
@@ -11,7 +23,6 @@ public:
 	PhoneBook() : _index(0){};
 	void add(const std::string &fname, const std::string &fName, const std::string &nName,
 			 const std::string &pNumber, const std::string &dSecret);
-	void search(void);
 	void displayPhoneBook();
 	void checkInputs(PhoneBook &book);
 	void find(int max);

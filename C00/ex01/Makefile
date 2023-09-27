@@ -1,7 +1,18 @@
-NAME := phonebook
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: nakanoun <nakanoun@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2023/09/27 18:15:09 by nakanoun      #+#    #+#                  #
+#    Updated: 2023/09/27 18:15:09 by nakanoun      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
 
-CXX	:=	g++
-CXXFLAGS	:= -Wall -Werror -Wextra -Iinclude -std=c++98
+NAME	:= phonebook
+CXX		:= g++
+CXXFLAGS:= -Wall -Werror -Wextra -Iinclude -std=c++98
 
 #Directories
 OBJ_DIR	:= obj
@@ -17,10 +28,10 @@ all: $(NAME)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HDRS) | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HDRS)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(NAME)	:	$(OBJS)
+$(NAME)	:	$(OBJ_DIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "compiled $(NAME) successfully.\n"
 
@@ -30,7 +41,7 @@ clean:
 	@printf "Removed .o files successfully.\n"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 	@printf "Removed $(NAME) successfully.\n"
 
 re: fclean all

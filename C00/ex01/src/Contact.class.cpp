@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Contact.class.cpp                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/09/27 18:16:23 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/09/27 18:16:23 by nakanoun      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.class.hpp"
 #include <iostream>
 #include <iomanip>
