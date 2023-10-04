@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Weapon.class.cpp                                   :+:    :+:            */
+/*   HumanB.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/03 13:18:14 by nakanoun      #+#    #+#                 */
-/*   Updated: 2023/10/03 13:18:14 by nakanoun      ########   odam.nl         */
+/*   Created: 2023/10/03 22:43:11 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/10/03 22:43:11 by nakanoun      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.class.hpp"
+#include "HumanB.hpp"
 #include <iostream>
 
-Weapon::Weapon()
+HumanB::HumanB(const std::string &name)
+	: _name(name)
 {
+	this->weapon = NULL;
 }
-Weapon::Weapon(const std::string &type): _type(type)
+void HumanB::setWeapon(Weapon &weapon)
 {
+	this->weapon = &weapon;
 }
-
-std::string Weapon::getType(void) const
+void HumanB::attack()
 {
-	return (_type);
-}
-
-void Weapon::setType(const std::string &type)
-{
-	this->_type = type;
+	if (this->weapon != NULL)
+	{
+		std::cout << _name << " attacks with their " << weapon->getType() << std::endl;
+	}
+	else
+	{
+		std::cout << _name << " does not have weapon" << std::endl;
+	}
 }

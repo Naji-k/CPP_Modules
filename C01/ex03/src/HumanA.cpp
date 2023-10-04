@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanB.class.cpp                                   :+:    :+:            */
+/*   HumanA.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/03 22:43:11 by nakanoun      #+#    #+#                 */
-/*   Updated: 2023/10/03 22:43:11 by nakanoun      ########   odam.nl         */
+/*   Created: 2023/10/04 15:06:47 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/10/04 15:06:47 by nakanoun      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.class.hpp"
+#include "HumanA.hpp"
 #include <iostream>
 
-HumanB::HumanB(const std::string &name)
-	: _name(name)
+HumanA::HumanA(const std::string &name, Weapon &weapon_type)
+	: _name(name), _weapon(weapon_type)
 {
-	this->weapon = NULL;
 }
-void HumanB::setWeapon(Weapon &weapon)
+void HumanA::attack(void) const
 {
-	this->weapon = &weapon;
-}
-void HumanB::attack()
-{
-	if (this->weapon != NULL)
-	{
-		std::cout << _name << " attacks with their " << weapon->getType() << std::endl;
-	}
+	if (_weapon.getType() != "")
+		std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 	else
-	{
-		std::cout << _name << " does not have weapon" << std::endl;
-	}
+		std::cout << _name << "Does not have weapon" << std::endl;
 }

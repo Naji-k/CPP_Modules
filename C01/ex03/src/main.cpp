@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.class.hpp"
-#include "HumanB.class.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 #include <iostream>
 
 int	main(void)
