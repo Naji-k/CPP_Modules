@@ -33,3 +33,4 @@ void HumanB::attack()
 		std::cout << _name << " does not have weapon" << std::endl;
 	}
 }
+HumanB::~HumanB() {}

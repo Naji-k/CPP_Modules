@@ -24,3 +24,5 @@ void HumanA::attack(void) const
 	else
 		std::cout << _name << "Does not have weapon" << std::endl;
 }
+
+HumanA::~HumanA() {}
