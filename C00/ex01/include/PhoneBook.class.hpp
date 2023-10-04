@@ -21,7 +21,7 @@ class PhoneBook
 {
 public:
 	PhoneBook() : _index(0){};
-	void add(const std::string &fname, const std::string &fName, const std::string &nName,
+	void add(const std::string &fname, const std::string &lName, const std::string &nName,
 			 const std::string &pNumber, const std::string &dSecret);
 	void displayPhoneBook();
 	void checkInputs(PhoneBook &book);
