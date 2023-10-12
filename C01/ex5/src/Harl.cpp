@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
 #include <iostream>
+#include "Harl.hpp"
 
 void Harl::debug(void)
 {
@@ -42,4 +42,21 @@ Harl::~Harl()
 }
 void Harl::complain(std::string level)
 {
+	Harl::functionPtr funcArray[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	const std::string levels[] = {"debug", "info", "warning", "error"};
+
+	int index = -1;
+	for (int i = 0; i < 4; i++)
+	{
+		if (level.compare(levels[i]) == 0)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index >= 0 && index < 4)
+		(this->*funcArray[index])();
+	else
+		std::cout << "Unknown level: " << level << std::endl;
 }

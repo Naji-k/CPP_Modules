@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Harl.hpp                                           :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/11 23:41:42 by nakanoun      #+#    #+#                 */
-/*   Updated: 2023/10/11 23:41:42 by nakanoun      ########   odam.nl         */
+/*   Created: 2023/10/12 18:26:56 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/10/12 18:26:56 by nakanoun      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-# include <string>
-
-class Harl
+int main(void)
 {
-  private:
-	void debug(void);
-	void info(void);
-	void warning(void);
-	void error(void);
-
-  public:
-	Harl();
-	~Harl();
-	void complain(std::string level);
-	typedef void (Harl::*functionPtr)();
-};
-#endif
+	Harl harl;
+	
+	harl.complain("debug");
+	harl.complain("info");
+	harl.complain("warning");
+	harl.complain("error");
+	harl.complain("hello");
+}
