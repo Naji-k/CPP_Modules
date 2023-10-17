@@ -12,6 +12,7 @@
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -20,21 +21,21 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const int i)
-	: _fixedPointNumber(i)
 {
+	this->_fixedPointNumber = i << _fractionalBitsValue;
 	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float f)
-	: _fixedPointNumber(static_cast<int>(f))
 {
+	this->_fixedPointNumber = roundf( f * ( 1 << _fractionalBitsValue));
 	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->setRawBits(other._fixedPointNumber);
+	this->setRawBits(other.getRawBits());
 }
 Fixed &Fixed::operator=(const Fixed &other)
 {
@@ -63,13 +64,14 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(_fixedPointNumber));
+	return (static_cast<float>(this->getRawBits()) / (1 << _fractionalBitsValue));
 }
 
 int Fixed::toInt(void) const
 {
-	return (_fixedPointNumber);
+	return (static_cast<int>(this->getRawBits()) / (1 << _fractionalBitsValue));
 }
+
 std::ostream &operator<<(std::ostream &o, Fixed const &fixed)
 {
 	o << fixed.toFloat();

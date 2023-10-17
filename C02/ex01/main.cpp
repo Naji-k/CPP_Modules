@@ -21,10 +21,6 @@ int	main(void)
 	Fixed const d(b);
 
 	a = Fixed(1234.4321f);
-	//copy assignment operator, 
-	//Float constructor called,
-	//copy assigement
-	//destructor called
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
