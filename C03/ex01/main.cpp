@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main(void)
@@ -19,7 +19,7 @@ int main(void)
 	const char *green = "\033[1;32m"; // Green text
 	const char *blue = "\033[1;34m";
 	const char *reset = "\033[0m"; // Reset text color to default
-	
+	{
 		std::cout << blue;
 		ClapTrap a;
 		ClapTrap first ("first");
@@ -35,6 +35,18 @@ int main(void)
 		second.attack("robot");
 		second.beRepaired(3);
 		std::cout << green;
-	
+	}
+	{
+
+		std::cout << red << "<<< ScavTrap >>> " << std::endl;
+		std::cout << blue;
+		ScavTrap simba("simba");
+		std::cout << reset;
+
+		simba.attack("robot");
+		simba.guardGate();
+		std::cout << green;
+	}
+
 	return 0;
 }
