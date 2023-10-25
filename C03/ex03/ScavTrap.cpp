@@ -14,12 +14,11 @@
 #include <iostream>
 
 ScavTrap::ScavTrap()
-	: ClapTrap()
 {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ScavTrap "<< this->_name << " constructor called" << std::endl;
 }
 ScavTrap::ScavTrap(const std::string &name)
 	: ClapTrap(name)
@@ -31,18 +30,20 @@ ScavTrap::ScavTrap(const std::string &name)
 }
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap deconstructor called" << std::endl;
+	std::cout << "ScavTrap "<< this->_name << " deconstructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other)
 	: ClapTrap(other)
 {
+	std::cout << "ScavTrap " << this->_name << " copy constructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
 	if (this != &rhs)
 	{
+		std::cout << "ScavTrap " << this->_name << " assignment operator called" << std::endl;
 		ClapTrap::operator=(rhs); // call the parent class assignment operator
 	}
 	return (*this);

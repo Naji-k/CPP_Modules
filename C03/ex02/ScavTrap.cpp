@@ -37,12 +37,14 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &other)
 	: ClapTrap(other)
 {
+	std::cout << "ScavTrap " << this->getName() << " copy constructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
 	if (this != &rhs)
 	{
+		std::cout << "ScavTrap " << this->getName() << " assignment operator called" << std::endl;
 		ClapTrap::operator=(rhs); // call the parent class assignment operator
 	}
 	return (*this);
@@ -51,15 +53,4 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 void ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
-}
-
-void ScavTrap::attack(const std::string &target)
-{
-	if (this->_hitPoints && this->_energyPoints)
-	{
-		this->_energyPoints--;
-		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << _attackDamage << " points of damage!\n\t energyPoints= " << getEnergyPoints() << " hitPoints= " << getHitPoints() << std::endl;
-	}
-	else
-		std::cout << "ScavTrap " << this->_name << " has no energy points or hits points" << std::endl;
 }

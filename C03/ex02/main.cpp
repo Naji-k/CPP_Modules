@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main(void)
@@ -38,7 +39,6 @@ int main(void)
 		std::cout << green;
 	}
 	{
-
 		std::cout << red << "<<< ScavTrap >>> " << std::endl;
 		std::cout << blue;
 		ScavTrap simba("simba");
@@ -48,6 +48,20 @@ int main(void)
 		simba.takeDamage(15);
 		simba.beRepaired(2);
 		simba.guardGate();
+		std::cout << green;
+	}
+	{
+		std::cout << red << "<<< FragTrap>>> " << std::endl;
+		std::cout << blue;
+
+		FragTrap f1("frog");
+		FragTrap f2 = FragTrap("rumba");
+		std::cout << reset;
+		f2.attack("random");
+		f2.takeDamage(25);
+		f2.beRepaired(10);
+		f2.highFivesGuys();
+
 		std::cout << green;
 	}
 

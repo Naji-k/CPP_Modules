@@ -10,46 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
-int main(void)
+int	main(void)
 {
-	const char *red = "\033[1;31m";	  // Red text
+	const char *red = "\033[1;31m";   // Red text
 	const char *green = "\033[1;32m"; // Green text
 	const char *blue = "\033[1;34m";
 	const char *reset = "\033[0m"; // Reset text color to default
-	{
+	
+		std::cout << red << "<<< DiamondTrap >>> " << std::endl;
+		// std::cout << blue;
+		// // DiamondTrap diamond;
+
+		// DiamondTrap diamond("Sally");
+		// std::cout << reset;
+
+		// diamond.whoAmI();
+
+		// std::cout << green;
+
 		std::cout << blue;
-		ClapTrap a;
-		ClapTrap first ("first");
-		std::cout << red;
-		a = first;
-		std::cout << reset;
-		ClapTrap second("Second");
-		std::cout << reset;
+		DiamondTrap cody("Cody");
+		DiamondTrap rambo("rambo");
 
-		second.takeDamage(7);
-		second.attack("robot");
-		second.beRepaired(3);
-		a.takeDamage(5);
-		for (int i = 0; i < 10; i++)
-			a.attack("robot");
+		std::cout << reset;
+		cody.whoAmI();
+		rambo.whoAmI();
+		cody = rambo;
+		rambo.whoAmI();
+		std::cout << red << "<<< ATTACK >>> " <<  reset << std::endl;
+
+		cody.attack("robot");
+		cody.takeDamage(10);
+		cody.beRepaired(10);
 		std::cout << green;
-	}
-	{
-
-		std::cout << red << "<<< ScavTrap >>> " << std::endl;
-		std::cout << blue;
-		ScavTrap simba("simba");
-		std::cout << reset;
-
-		simba.attack("robot");
-		simba.takeDamage(15);
-		simba.beRepaired(2);
-		simba.guardGate();
-		std::cout << green;
-	}
-
-	return 0;
+	
 }
