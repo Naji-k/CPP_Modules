@@ -51,10 +51,10 @@ public:
 	Fixed operator/(const Fixed &rhs);
 
 	// increment/decrement
-	Fixed &operator++();   // prefix
-	Fixed &operator--();   // prefix
-	Fixed operator++(int); // postfix
-	Fixed operator--(int); // postfix
+	Fixed &operator++();   // prefix ++i
+	Fixed &operator--();   // prefix --i
+	Fixed operator++(int); // postfix i++
+	Fixed operator--(int); // postfix i++
 
 	static Fixed &min(Fixed &a, Fixed &b);
 	static Fixed &max(Fixed &a, Fixed &b);
