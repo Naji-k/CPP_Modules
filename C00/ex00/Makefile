@@ -24,3 +24,7 @@ $(NAME) : megaphone.cpp
 clean:
 	@rm -f $(NAME)
 	@printf "Removed $(NAME) successfully.\n"
+
+fclean: clean
+
+re: fclean all

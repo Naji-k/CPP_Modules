@@ -31,7 +31,10 @@ int main(void)
 			break;
 		}
 		if (order.compare("ADD") == 0)
-			book1.checkInputs(book1);
+		{
+			if (book1.checkInputs(book1) == 1)
+				return(0);
+		}
 		else if (order.compare("SEARCH") == 0)
 		{
 			book1.displayPhoneBook();

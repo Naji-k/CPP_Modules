@@ -15,7 +15,7 @@
 #include <cstdlib>
 #include "PhoneBook.class.hpp"
 
-void PhoneBook::checkInputs(PhoneBook &book)
+int PhoneBook::checkInputs(PhoneBook &book)
 {
 	std::string prompt[5] = {"First Name ", "Last Name ", "Nick Name",
 							 "Phone Number ", "Dark Secret "};
@@ -27,7 +27,7 @@ void PhoneBook::checkInputs(PhoneBook &book)
 		if (!getline(std::cin, input[i]))
 		{
 			std::cout << "EOF detected. Exiting.\n";
-			return;
+			return(EXIT_FAILURE);
 		}
 		if (input[i].empty())
 		{
@@ -64,6 +64,7 @@ void PhoneBook::checkInputs(PhoneBook &book)
 	{
 		book.add(input[0], input[1], input[2], input[3], input[4]);
 	}
+	return (EXIT_SUCCESS);
 }
 
 void PhoneBook::add(const std::string &fName, const std::string &lName,

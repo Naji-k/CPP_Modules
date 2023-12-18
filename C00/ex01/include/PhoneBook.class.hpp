@@ -24,7 +24,7 @@ public:
 	void add(const std::string &fname, const std::string &lName, const std::string &nName,
 			 const std::string &pNumber, const std::string &dSecret);
 	void displayPhoneBook();
-	void checkInputs(PhoneBook &book);
+	int	 checkInputs(PhoneBook &book);
 	void find(int max);
 	void printLine(int i);
 
