@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Sed.class.hpp                                      :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/11 16:49:30 by nakanoun      #+#    #+#                 */
-/*   Updated: 2023/10/11 16:49:30 by nakanoun      ########   odam.nl         */
+/*   Created: 2023/10/12 18:26:56 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/10/12 18:26:56 by nakanoun      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef SED_CLASS_HPP
-# define SED_CLASS_HPP
+#include "Harl.hpp"
 
-# include <string>
-#include <cstdlib>
-
-class Sed
+int main(int argc, char **argv)
 {
-  private:
-	std::string _ifName;
-	std::string _ofName;
-
-  public:
-	Sed();
-	Sed(const std::string &infile);
-	~Sed();
-	void replace(const std::string &toFind,const std::string &toReplace);
-};
-
-#endif
+	if (argc == 2)
+	{
+		Harl harl;
+		harl.complain(argv[1]);
+	}
+	
+}

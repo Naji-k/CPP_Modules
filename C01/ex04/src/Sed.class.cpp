@@ -29,7 +29,7 @@ Sed::~Sed()
 void Sed::replace(const std::string &toFind, const std::string &toReplace)
 {
 	std::ifstream ifs;
-	ifs.open(_ifName);
+	ifs.open(_ifName.c_str());
 	if (ifs.fail())
 	{
 		std::cout << "Unable to open infile" << std::endl;
@@ -50,7 +50,7 @@ void Sed::replace(const std::string &toFind, const std::string &toReplace)
 		pos = wholeContent.find(toFind, pos + toReplace.length());
 	}
 	std::ofstream ofs;
-	ofs.open(_ofName);
+	ofs.open(_ofName.c_str());
 	if (ofs.is_open())
 	{
 		ofs << wholeContent;

@@ -46,7 +46,7 @@ int PhoneBook::checkInputs(PhoneBook &book)
 				}
 			}
 		}
-		if (i != 3 && i > 0)
+		if (i != 3 && i >= 0)
 		{
 			for (int j = 0; j < (int)input[i].length(); j++)
 			{

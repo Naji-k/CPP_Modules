@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Sed.class.hpp                                      :+:    :+:            */
+/*   Harl.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nakanoun <nakanoun@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/10/11 16:49:30 by nakanoun      #+#    #+#                 */
-/*   Updated: 2023/10/11 16:49:30 by nakanoun      ########   odam.nl         */
+/*   Created: 2023/10/11 23:41:42 by nakanoun      #+#    #+#                 */
+/*   Updated: 2023/10/11 23:41:42 by nakanoun      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef SED_CLASS_HPP
-# define SED_CLASS_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 # include <string>
-#include <cstdlib>
 
-class Sed
+class Harl
 {
   private:
-	std::string _ifName;
-	std::string _ofName;
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
   public:
-	Sed();
-	Sed(const std::string &infile);
-	~Sed();
-	void replace(const std::string &toFind,const std::string &toReplace);
+	Harl();
+	~Harl();
+	void complain(std::string level);
+	typedef void (Harl::*functionPtr)();
 };
-
 #endif

@@ -25,5 +25,10 @@ echo "hello Naji" >> infile
 echo "Test Case 4: ./main "infile" \"hello\" \"hey\""
 ./main infile "hello" "hey"
 echo
+echo "**original**"
+cat infile 
+echo
+echo "replaced with |hey| "
+echo
 cat infile.replace
 echo
